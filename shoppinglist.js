@@ -1,5 +1,16 @@
 
-var items = [
+function addItem(){
+	var itemName = document.getElementById("itemName").value;
+	var itemPrice = document.getElementById("price").value;
+	var x = {name: itemName, price: itemPrice};
+	items.push(x);
+	console.log(items);
+	document.getElementById("itemName").value = "";
+	document.getElementById("price").value = "";
+};
+
+	var total = 0;
+	var items = [
 	{
 		name: "milk",
 		price: 3.00
@@ -17,26 +28,16 @@ var items = [
 		price: 5.00
 	},
 ]
-
-function addItem(){
-	var itemName = document.getElementById("itemName").value;
-	var itemPrice = document.getElementById("price").value;
-	var x = {name: itemName, price: itemPrice};
-	items.push(x);
-	console.log(items);
-};
-
-var total = 0;
-
-items.forEach(function(element){
+	items.forEach(function(element){
 	var newP = document.createElement('p');
 	newP.innerHTML = element.name + " $" + element.price.toFixed(2);
 	document.body.appendChild(newP);
 	total += element.price;
 });
-
-var newP = document.createElement('p');
+	var newP = document.createElement('p');
 newP.innerHTML = "Total: $" + total.toFixed(2);
 document.body.appendChild(newP);
+
+
 
 
